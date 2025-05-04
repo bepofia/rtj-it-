@@ -1,21 +1,28 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 using DG.Tweening;
+using UnityEngine.UI;
 
 public class DraggablePanel : MonoBehaviour, IPointerDownHandler, IDragHandler
 {
     private RectTransform rectTransform;
     private Canvas canvas;
     private Vector2 pointerOffset;
+    public Image image;
 
     [Header("DOTween Ayarlarý")]
     public float tweenSpeed = 0.1f;
     public Ease tweenEase = Ease.OutQuad;
 
+    [SerializeField] Sprite panelBlue;
+    [SerializeField] Sprite panelRed;
+    [SerializeField] Sprite panelGreen;
+
     private void Awake()
     {
         rectTransform = GetComponent<RectTransform>();
         canvas = GetComponentInParent<Canvas>();
+        image.sprite = panelBlue;
     }
 
     public void OnPointerDown(PointerEventData eventData)
@@ -45,4 +52,18 @@ public class DraggablePanel : MonoBehaviour, IPointerDownHandler, IDragHandler
             rectTransform.DOAnchorPos(targetPos, tweenSpeed).SetEase(tweenEase);
         }
     }
+
+    public void BlueButton()
+    {
+        image.sprite = panelBlue;
+    }
+    public void RedButton()
+    {
+        image.sprite = panelRed;
+    }
+    public void GreenButton()
+    {
+        image.sprite = panelGreen;
+    }
+
 }
