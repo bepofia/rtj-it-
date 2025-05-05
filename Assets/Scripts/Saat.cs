@@ -20,6 +20,8 @@ public class Saat : MonoBehaviour
         musteriScript = FindObjectOfType<MüþteriScript>();
     }
 
+    
+
     private IEnumerator SaatBasla()
     {
         float derecePerSecond = 360f / süre;
@@ -64,13 +66,17 @@ public class Saat : MonoBehaviour
         }
     }
 
-    void YeniMusteriGel()
+    public void YeniMusteriGel()
     {
         musteriScript.YeniMusteri();
+
         toplamDonus = 0f;            // Yeni saat için sýfýrla
         yavsakOldu = false;          // Durumlarý sýfýrla
         kizginOldu = false;
-        calisiyor = true;            // Kritik satýr! Saat tekrar çalýþacak
+        calisiyor = true;            // Saat tekrar çalýþacak
+
+        yelkovan.transform.rotation = Quaternion.identity; // Yelkovaný sýfýrla
+
         StartCoroutine(SaatBasla());
     }
 }

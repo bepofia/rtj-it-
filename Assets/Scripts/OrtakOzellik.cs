@@ -11,14 +11,14 @@ public class OrtakOzellik : MonoBehaviour
     [Header("Para Özellikleri")]
     public bool paraMý;
     public bool orjinalParaMý;
-    public int paraMiktarý;
+    public int ParaMiktari;
 
     private void Update()
     {
         if(!paraMý)
         {
             orjinalParaMý = false;
-            paraMiktarý = 0;
+            ParaMiktari = 0;
         }
     }
 }

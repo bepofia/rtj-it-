@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -20,10 +20,10 @@ public class ParaSpawn : MonoBehaviour
         currentObject = Instantiate(objectToSpawn, transform.position, transform.rotation);
         currentObject.transform.localScale = transform.localScale;
 
-        // Scripti ekle ve s�r�klemeyi ba�lat
+        currentObject.tag = "bas"; // ← Tag'ı ayarla
+
+        // Scripti ekle ve sürüklemeyi başlat
         ParaTut dragScript = currentObject.AddComponent<ParaTut>();
         dragScript.StartDrag();
     }
-
-
 }
